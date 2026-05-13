@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pablo Ezeta Watts — UX/UI Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #0D5C4A;
+  --accent-soft: #E1F5EE;
+  --text-dark: #111111;
+  --text-mid: #3C3C3A;
+  --text-muted: #888780;
+  --border-hard: #C0BDB5;
+  --border-soft: #E0DED8;
+  --bg: #ffffff;
+}
+
+html { background: #F1EFE8; }
+
+body {
+  font-family: 'Manrope', sans-serif;
+  font-size: 9pt;
+  line-height: 1.55;
+  color: var(--text-dark);
+  background: var(--bg);
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  box-shadow: 0 2px 40px rgba(0,0,0,0.12);
+}
+
+@media print {
+  html { background: #fff; }
+  body { box-shadow: none; width: 100%; font-size: 8.5pt; }
+  @page { margin: 0; size: A4 portrait; }
+}
+
+/* ── HEADER ── */
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  padding: 38px 44px 26px 44px;
+  border-bottom: 1.5px solid var(--text-dark);
+  gap: 20px;
+}
+
+.name {
+  font-family: 'Spectral', serif;
+  font-size: 30pt;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: var(--text-dark);
+}
+
+.tagline {
+  font-family: 'Spectral', serif;
+  font-style: italic;
+  font-size: 11pt;
+  color: var(--accent);
+  margin-top: 6px;
+  letter-spacing: 0.01em;
+}
+
+.contact-block {
+  text-align: right;
+  font-size: 8pt;
+  color: var(--text-mid);
+  line-height: 1.8;
+}
+
+.contact-block a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ── BODY LAYOUT ── */
+.layout {
+  display: grid;
+  grid-template-columns: 175px 1fr;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  padding: 26px 18px 40px 44px;
+  border-right: 0.5px solid var(--border-soft);
+}
+
+.s-section { margin-bottom: 22px; }
+
+.s-label {
+  font-size: 6.5pt;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-bottom: 5px;
+  border-bottom: 0.5px solid var(--border-hard);
+  margin-bottom: 9px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-bottom: 8px;
+}
+
+.tag {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 7.5pt;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+
+.tag.code {
+  background: #EEF2F8;
+  color: #1A4A80;
+}
+
+.tag.ai {
+  background: #F3F0FA;
+  color: #4A3A8A;
+}
+
+.s-item {
+  font-size: 8pt;
+  color: var(--text-mid);
+  margin-bottom: 7px;
+  line-height: 1.4;
+}
+
+.s-item strong {
+  display: block;
+  font-weight: 600;
+  font-size: 7.5pt;
+  color: var(--text-dark);
+  margin-bottom: 1px;
+}
+
+.s-cert {
+  font-size: 8pt;
+  color: var(--text-mid);
+  padding-left: 8px;
+  border-left: 2px solid var(--accent-soft);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.lang-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 8pt;
+  margin-bottom: 4px;
+}
+
+.lang-name { font-weight: 600; color: var(--text-dark); }
+.lang-level { color: var(--text-muted); }
+
+/* ── MAIN ── */
+.main {
+  padding: 26px 44px 40px 26px;
+}
+
+.m-section { margin-bottom: 20px; }
+
+.m-label {
+  font-size: 6.5pt;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-bottom: 5px;
+  border-bottom: 0.5px solid var(--border-hard);
+  margin-bottom: 10px;
+}
+
+.profile-text {
+  font-size: 8.5pt;
+  color: var(--text-mid);
+  line-height: 1.65;
+}
+
+/* ── ENTRY ── */
+.entry {
+  margin-bottom: 13px;
+  padding-bottom: 13px;
+  border-bottom: 0.5px solid var(--border-soft);
+}
+
+.entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.entry-title {
+  font-weight: 600;
+  font-size: 9pt;
+  color: var(--text-dark);
+  flex: 1;
+}
+
+.entry-meta {
+  font-size: 7.5pt;
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.entry-sub {
+  font-family: 'Spectral', serif;
+  font-style: italic;
+  font-size: 8pt;
+  color: var(--accent);
+  margin: 1px 0 5px;
+}
+
+ul.bul {
+  list-style: none;
+  padding: 0;
+}
+
+ul.bul li {
+  font-size: 8pt;
+  color: var(--text-mid);
+  line-height: 1.5;
+  padding-left: 11px;
+  position: relative;
+  margin-bottom: 2px;
+}
+
+ul.bul li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 400;
+}
+
+strong.hl {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* ── FOOTER STRIP ── */
+.footer-strip {
+  border-top: 0.5px solid var(--border-soft);
+  padding: 10px 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-strip span {
+  font-size: 7.5pt;
+  color: var(--text-muted);
+}
+
+.footer-strip a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 7.5pt;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="header">
+  <div>
+    <div class="name">Pablo Ezeta Watts</div>
+    <div class="tagline">UX/UI Designer · Product-minded · Code-capable</div>
+  </div>
+  <div class="contact-block">
+    <a href="mailto:info@pabloezeta.com">info@pabloezeta.com</a><br>
+    +52 55 4817 4642<br>
+    <a href="https://pabloezeta.com" target="_blank">pabloezeta.com</a><br>
+    <a href="https://linkedin.com/in/pablo-ezeta" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
+    <a href="https://github.com/pabloezeta" target="_blank">GitHub</a><br>
+    Mexico City, Mexico
+  </div>
+</header>
+
+<div class="layout">
+
+<!-- ═══ SIDEBAR ═══ -->
+<aside class="sidebar">
+
+  <div class="s-section">
+    <div class="s-label">Design</div>
+    <div class="tags">
+      <span class="tag">Figma</span>
+      <span class="tag">User flows</span>
+      <span class="tag">Wireframing</span>
+      <span class="tag">Prototyping</span>
+      <span class="tag">Info. architecture</span>
+      <span class="tag">Mobile-first</span>
+      <span class="tag">UX Writing</span>
+      <span class="tag">Design systems</span>
+    </div>
+  </div>
+
+  <div class="s-section">
+    <div class="s-label">Code</div>
+    <div class="tags">
+      <span class="tag code">React.js</span>
+      <span class="tag code">JavaScript</span>
+      <span class="tag code">HTML5</span>
+      <span class="tag code">CSS3</span>
+      <span class="tag code">Flask</span>
+      <span class="tag code">PostgreSQL</span>
+      <span class="tag code">Bootstrap</span>
+      <span class="tag code">Git · GitHub</span>
+    </div>
+  </div>
+
+  <div class="s-section">
+    <div class="s-label">AI &amp; Tools</div>
+    <div class="tags">
+      <span class="tag ai">Claude</span>
+      <span class="tag ai">Cursor</span>
+      <span class="tag ai">Midjourney</span>
+      <span class="tag ai">Adobe Firefly</span>
+      <span class="tag">Photoshop</span>
+      <span class="tag">WordPress</span>
+      <span class="tag">WooCommerce</span>
+      <span class="tag">Canva</span>
+    </div>
+  </div>
+
+  <div class="s-section">
+    <div class="s-label">Education</div>
+
+    <div class="s-item">
+      <strong>4Geeks Academy</strong>
+      Fullstack Software Dev.<br>
+      400 hrs · 2025
+    </div>
+
+    <div class="s-item">
+      <strong>Google / Coursera</strong>
+      UX Design Certificate<br>
+      2021–2022
+    </div>
+
+    <div class="s-item">
+      <strong>Universidad de Londres</strong>
+      B.S. Marketing<br>
+      2011–2015, Mexico City
+    </div>
+  </div>
+
+  <div class="s-section">
+    <div class="s-label">Certifications</div>
+    <div class="s-cert">Google UX Design Certificate</div>
+    <div class="s-cert">Git &amp; GitHub — Professional Level</div>
+    <div class="s-cert">Editorial Design, Domestika 2024</div>
+    <div class="s-cert">Photography Diploma<br>Gimnasio de Arte, 2017–18</div>
+  </div>
+
+  <div class="s-section">
+    <div class="s-label">Languages</div>
+    <div class="lang-row">
+      <span class="lang-name">Spanish</span>
+      <span class="lang-level">Native</span>
+    </div>
+    <div class="lang-row">
+      <span class="lang-name">English</span>
+      <span class="lang-level">Professional (B2)</span>
+    </div>
+  </div>
+
+</aside>
+
+<!-- ═══ MAIN ═══ -->
+<main class="main">
+
+  <!-- PROFILE -->
+  <section class="m-section">
+    <div class="m-label">Profile</div>
+    <p class="profile-text">
+      Product-focused UX/UI designer who bridges design and frontend code. I integrate AI tools throughout my workflow — from clarifying intent and drafting specs with Claude, to generating and iterating on UI with Cursor — and move comfortably from early concept to a shipped interface in React. With a Google UX Design Certificate, a fullstack development background (4Geeks Academy), and 13 years building and measuring a real product-and-service business from scratch, I bring design craft and business judgment to every problem. I care about outcomes, not just deliverables.
+    </p>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="m-section">
+    <div class="m-label">Projects</div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Xplora — Tours &amp; Travel Management Platform</span>
+        <span class="entry-meta">2025</span>
+      </div>
+      <div class="entry-sub">React · Flask · PostgreSQL · UX/UI end-to-end</div>
+      <ul class="bul">
+        <li>Defined user flows and information architecture for two distinct user types (operators and travelers), prioritizing reduction of friction in exploration and booking — before writing any code</li>
+        <li>Used AI tools (Claude, Cursor) to draft specs, surface edge cases, and accelerate wireframe-to-prototype iterations</li>
+        <li>Built the backend with Flask + PostgreSQL; implemented <strong class="hl">40% of the proposed UI in React</strong>, translating my own UX decisions directly into production-ready frontend code</li>
+        <li>Implemented JWT-based auth and a full data model for users, tours, and bookings; collaborated via Git/GitHub in a team of three</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">CETUS Dive Center — Web Redesign &amp; UX</span>
+        <span class="entry-meta">2025–2026</span>
+      </div>
+      <div class="entry-sub">Real client · Non-technical stakeholders · Two connected WordPress sites</div>
+      <ul class="bul">
+        <li>Translated ambiguous business requirements from non-technical users into two connected digital products (cetusscubacenter.com + cetusscubarepair.com)</li>
+        <li>Designed user flows to reduce friction in service discovery and contact, and structured IA to make technical scuba content accessible to first-time visitors</li>
+        <li>Developed iterative wireframes and prototypes to validate decisions early; delivered mobile-first with full coherence between designed experience and implemented product</li>
+        <li>Integrated Calendly for bookings and MailerLite for automated email campaigns</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">ABISMO Dive School — Product &amp; Service Design</span>
+        <span class="entry-meta">Selected, 2009–2022</span>
+      </div>
+      <div class="entry-sub">Founded and scaled a 13-year product business; built the entire digital stack independently</div>
+      <ul class="bul">
+        <li>Designed the <strong class="hl">ABISMO Membership</strong>: a 3-pillar service product with 82 gamified progressive activities across 6 skill tracks — a curriculum that drove word-of-mouth growth and long-term retention</li>
+        <li>Built an SEO + WordPress acquisition funnel that held <strong class="hl">top-3 organic Google positions</strong> for target keywords for 5 consecutive years, generating 5+ qualified leads/month</li>
+        <li>Ran quarterly NPS-style surveys with 200+ clients; maintained <strong class="hl">80–85% rating 9–10/10</strong> annually; 82% would recommend unprompted; 9% of base active for 3+ years</li>
+        <li>Scaled to 200+ clients, 100+ certified divers, 100+ trips — all digital presence self-built</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">100 Days of UI Design Challenge</span>
+        <span class="entry-meta">Ongoing · Figma</span>
+      </div>
+      <ul class="bul">
+        <li>Daily design practice across diverse platforms and sectors, sharpening layout composition, grid systems, and Figma component design; work to be integrated into portfolio</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="m-section">
+    <div class="m-label">Experience</div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">UX/UI &amp; Web Designer — Freelance</span>
+        <span class="entry-meta">2022–present · Mexico City</span>
+      </div>
+      <ul class="bul">
+        <li>Applied full UX process (flows, IA, wireframes, prototypes) across multiple real clients: CETUS Dive Center, REHTM (academic network), Marta Watts (author), xMartaja jewelry e-commerce, and Wild Sites design studio</li>
+        <li>Designed and developed responsive WordPress and WooCommerce sites with booking systems, payment flows, and email automation</li>
+        <li>Used AI-generated illustration (Midjourney, Adobe Firefly) in editorial projects; designed and published a children's book on Amazon KDP — <strong class="hl">80+ copies sold</strong> in print and Kindle</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Founder &amp; Director — Escuela de Buceo ABISMO</span>
+        <span class="entry-meta">2009–2022 · Mexico City</span>
+      </div>
+      <ul class="bul">
+        <li>Built and scaled a dive school from zero to <strong class="hl">200+ clients and 100+ certified divers</strong> across 13 years, managing strategy, operations, team (7 staff developed to divemaster level), and all customer experience</li>
+        <li>Designed the full service experience: membership product, gamified curriculum, satisfaction measurement, and digital growth strategy — all tools and skills acquired self-directed</li>
+      </ul>
+    </div>
+
+  </section>
+
+</main>
+</div>
+
+<div class="footer-strip">
+  <span>Pablo Ezeta Watts · UX/UI Designer</span>
+  <a href="https://pabloezeta.com" target="_blank">pabloezeta.com</a>
+</div>
+
+</body>
+</html>
